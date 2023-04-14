@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Do You Love Me?</title>
+    <style>
+     body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 70px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 80px;
+        }
+
+        #noButton {
+            background-color: #f44336;
+        }
+
+        /* Hover effect on buttons */
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 50px;
+            }
+
+            button {
+                font-size: 50px;
+            }
+        }
+    </style>
+    <script>
+        function showLoveMessage() {
+            // Show popup message
+            alert("Yes, I love you!");
+        }
+
+        function moveNoButton() {
+            // Move "No" button to a different position
+            var noButton = document.getElementById("noButton");
+            var container = document.getElementById("container");
+            var containerRect = container.getBoundingClientRect();
+            var newX = Math.floor(Math.random() * (containerRect.width - 100)); // Calculate a random X coordinate within the container
+            var newY = Math.floor(Math.random() * (containerRect.height - 40)); // Calculate a random Y coordinate within the container
+            noButton.style.position = "absolute";
+            noButton.style.top = newY + "px";
+            noButton.style.left = newX + "px";
+        }
+        
+        function showLoveMessage() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Do You Love Me Ericka?</h1>
+        <div class="button-container">
+            <button onclick="showLoveMessage()">Yes</button>
+            <button id="noButton" onclick="moveNoButton()">No</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Jess reply to you</h2>
+            <p>Okii, I love you too<3!</p>
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+        </div>
+    </div>
+</body>
+</html>
